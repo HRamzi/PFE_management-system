@@ -50,7 +50,7 @@ class ProfileController extends Controller
         ]);
 
         $user->update($validated);
-        return response()->json($user);
+
     }
 
     public function uploadProfilePicture(Request $request)
