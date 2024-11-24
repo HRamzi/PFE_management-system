@@ -1,16 +1,16 @@
 // client/src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Dashboard from './Dashboard';
-import Login from './pages/login';
+import Login from './pages/login'; // Ensure the Login component is imported correctly
+import TeacherDashboard from './pages/TeacherDashboard';
 
 function App() {
   return (
     <Router>
       <Routes>
+        {/* Define your routes here */}
         <Route path="/login" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        {/* Add other routes if necessary */}
+        <Route path="/dashboard" element={<TeacherDashboard />} />
       </Routes>
     </Router>
   );
