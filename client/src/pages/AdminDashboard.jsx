@@ -1,23 +1,54 @@
-import Card from "../component/Card";
-import NavbarContent from "../component/NavbarContent";
+import Card from "../Component/Card";
+import NavbarContent from "../Component/NavbarContent";
 import './Dashboard.css'
 import React from 'react';
-import Calendar from "../component/Calendar";
-import MyTable from "../component/Table";
+import Calendar from "../Component/Calendar";
+import MyTable from "../Component/Table";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import MyProgressBar from "../component/MyProgressBar";
-import MyDropdown from "../component/MyDropdown";
+import MyProgressBar from "../Component/MyProgressBar";
+import MyDropdown from "../Component/MyDropdown";
 
 function AdminDashboard(){
+    const headerStyle = {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        backgroundColor: '#f8f9fa', /* Light gray background */
+        padding: '10px 20px',
+        borderBottom: '2px solid #e0e0e0', /* Subtle bottom border */
+        boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)'
+    }
+
+    const profileContainer = {
+        display: 'flex',
+        alignItems: 'center'
+    }
+
+    const profilePic = {
+        width: '40px',
+        height: '40px',
+        borderRadius: '50%',
+        border: '2px solid #007bff',
+        marginRight: '10px'
+    }
+
+    const HeaderText = {
+        fontSize: '18px',
+        fontWeight: 'bold',
+        color: '#333'
+    }
+
     return (
         <React.Fragment>
-        <header className="Header">
+        <header style={headerStyle}>
+        <div style={profileContainer}>
         <img
           src="https://static.vecteezy.com/system/resources/previews/001/840/612/non_2x/picture-profile-icon-male-icon-human-or-people-sign-and-symbol-free-vector.jpg" // Replace this with your profile picture URL
           alt="Profile"
-          className="Profile-Pic"
+          style={profilePic}
         />
-        <span className="Header-Text" >Welcome, Admin!</span>
+        <span style={HeaderText} >Welcome, Admin!</span>
+        </div>
         <MyDropdown/>
       </header>
         <body className="bodyy">

@@ -1,18 +1,21 @@
-// client/src/App.js
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Login from './pages/login'; // Ensure the Login component is imported correctly
-import TeacherDashboard from './pages/TeacherDashboard';
+import './App.css';
+import CompanyDashboard from './Pages/CompanyDashboard';
+import AdminDashboard from './Pages/AdminDashboard';
+import StudentDashboard from './Pages/StudentDashboard';
+import TeacherDashboard from './Pages/TeacherDashboard';
+import ClassManagment from './Pages/ClassManagment';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 
 function App() {
   return (
-    <Router>
+      <BrowserRouter>
       <Routes>
-        {/* Define your routes here */}
-        <Route te path="/login" element={<Login />} />
-        <Route path="/teacher-dashboard" element={<TeacherDashboard />} />
+        <Route path='/teacher-dashboard' element={<TeacherDashboard/>}/>
+        <Route path='/admin' element={<AdminDashboard/>}/>
+        <Route path='/classes-page' element={<ClassManagment/>}/>
       </Routes>
-    </Router>
+      </BrowserRouter>
   );
 }
 
