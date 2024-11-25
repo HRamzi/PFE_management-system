@@ -9,8 +9,8 @@ function App() {
     <Router>
       <Routes>
         {/* Define your routes here */}
-        <Route path="/login" element={<Login />} />
-        <Route path="/dashboard" element={<TeacherDashboard />} />
+        <Route te path="/login" element={<Login />} />
+        <Route path="/teacher-dashboard" element={<TeacherDashboard />} />
       </Routes>
     </Router>
   );

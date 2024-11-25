@@ -1,6 +1,6 @@
 import Card from "../component/Card";
 import NavbarContent from "../component/NavbarContent";
-import './TeacherDashboard.css'
+import './Dashboard.css'
 import React from 'react';
 import Calendar from "../component/Calendar";
 import MyTable from "../component/Table";

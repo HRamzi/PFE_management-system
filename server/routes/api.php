@@ -42,25 +42,23 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
     ->name('logout');
 
 Route::middleware(['auth:sanctum'])->group(function () {
-        // Admin Dashboard
-        Route::middleware('role:admin')->get('/admin/dashboard', function () {
-            return response()->json(['message' => 'Welcome to the Admin Dashboard']);
-        });
-
-        // Teacher Dashboard
-        Route::middleware('role:teacher')->get('/teacher/dashboard', function () {
-            return response()->json(['message' => 'Welcome to the Teacher Dashboard']);
-        });
-
-        // Student Dashboard
-        Route::middleware('role:student')->get('/student/dashboard', function () {
-            return response()->json(['message' => 'Welcome to the Student Dashboard']);
-        });
-
-        // Company Dashboard
-        Route::middleware('role:company')->get('/company/dashboard', function () {
-            return response()->json(['message' => 'Welcome to the Company Dashboard']);
-        });
+    // Admin Dashboard
+    Route::middleware('role:admin')->get('/admin/dashboard', function () {
+        return response()->json(['message' => 'Welcome to the Admin Dashboard']);
     });
 
+    // Teacher Dashboard
+    Route::middleware('role:teacher')->get('/teacher-dashboard', function () {
+        return response()->json(['message' => 'Welcome to the Teacher Dashboard']);
+    });
 
+    // Student Dashboard
+    Route::middleware('role:student')->get('/student/dashboard', function () {
+        return response()->json(['message' => 'Welcome to the Student Dashboard']);
+    });
+
+    // Company Dashboard
+    Route::middleware('role:company')->get('/company/dashboard', function () {
+        return response()->json(['message' => 'Welcome to the Company Dashboard']);
+    });
+});
