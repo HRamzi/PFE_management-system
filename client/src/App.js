@@ -12,7 +12,7 @@ function App() {
       <BrowserRouter>
       <Routes>
         <Route path='/teacher-dashboard' element={<TeacherDashboard/>}/>
-        <Route path='/admin' element={<AdminDashboard/>}/>
+        <Route path='/admin-dashboard' element={<AdminDashboard/>}/>
         <Route path='/classes-page' element={<ClassManagment/>}/>
       </Routes>
       </BrowserRouter>

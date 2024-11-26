@@ -23,11 +23,11 @@ function NavbarContent(props){
     if(props.name === 'teacher'){
         return (
             <div style={navbarStyle}>
-                <Dashboard isSelected='true'/>
-                <Classes isSelected=''/>
-                <Assignment isSelected=''/>
-                <Propositions isSelected=''/>
-                <Settings isSelected=''/>
+                <Dashboard isSelected={props.current === 'dashboard' ? 'true' : ''}/>
+                <Classes isSelected={props.current === 'classes' ? 'true' : ''}/>
+                <Assignment isSelected={props.current === 'assignment' ? 'true' : ''}/>
+                <Propositions isSelected={props.current === 'propositions' ? 'true' : ''}/>
+                <Settings isSelected={props.current === 'settings' ? 'true' : ''}/>
             </div>
         );
     }
