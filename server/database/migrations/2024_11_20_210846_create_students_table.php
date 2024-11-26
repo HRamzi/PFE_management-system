@@ -20,7 +20,7 @@ return new class extends Migration
             $table->timestamps(); // Includes `created_at` and `updated_at` columns
 
         // Foreign key constraint
-        $table->foreign('student_id')->references('user_id')->on('users')->onDelete('cascade');
+        $table->foreign('student_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

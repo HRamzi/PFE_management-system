@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
+use App\Http\Controllers\Controller;
+
 use App\Models\Student;
 use App\Models\User;
 use Illuminate\Http\Request;
