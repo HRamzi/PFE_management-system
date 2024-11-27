@@ -1,0 +1,15 @@
+.Card{
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 10px;
+  width: 200px;
+  height: 100px;
+  text-align: start;
+  font-family: Arial, sans-serif;
+  
+}
+
+.Cards-text{
+  font-size: 20px;
+}
