@@ -33,9 +33,22 @@ class ProfileController extends Controller
     {
 
             $userData = User::findOrFail($id);
-            $studentData =Student::findOrFail($id);
-            $student = ["name"=>$studentData->name, "family_name"=>$studentData->family_name,  "email"=>$userData->email,  "phone_number"=>$userData->phone_number, "user_role"=>$userData->user_role,  "university_major"=>$studentData->university_major,  "master1_average"=>$studentData->master1_average,  "profile_picture"=>$userData->profile_picture ];
-            return response()->json($student);
+            if($userData->user_role == "student"){
+                $studentData =Student::findOrFail($id);
+                $user = ["name"=>$studentData->name, "family_name"=>$studentData->family_name,  "email"=>$userData->email,  "phone_number"=>$userData->phone_number, "user_role"=>$userData->user_role,  "university_major"=>$studentData->university_major,  "master1_average"=>$studentData->master1_average,  "profile_picture"=>$userData->profile_picture ];
+
+            }
+            // elseif($userData->user_role == "company") {
+            //     $companyData =Company::findOrFail($id);
+            //     $user = ["name"=>$companyData->name,   "email"=>$userData->email,  "phone_number"=>$userData->phone_number, "user_role"=>$userData->user_role,     "profile_picture"=>$userData->profile_picture ];
+
+            // }
+            // else{
+            //     $teacherData =Teacher::findOrFail($id);
+            //     $user = ["name"=>$teacherData->name, "family_name"=>$teacherData->family_name,  "email"=>$userData->email,  "phone_number"=>$userData->phone_number, "user_role"=>$userData->user_role,  "recruitment_date"=>$teacherData->recruitment_date,  "grade"=>$teacherData->grade,  "profile_picture"=>$userData->profile_picture ];
+
+            // }
+            return response()->json($user);
 
     }
 
@@ -48,7 +61,7 @@ class ProfileController extends Controller
         $user = User::findOrFail($id);
 
         $validated = $request->validate([
-            'phone_number' => 'required|string|max:15', // Ensure the phone number is valid
+            'phone_number' => 'required|string|max:15',
         ]);
 
         $user->update($validated);
@@ -57,32 +70,24 @@ class ProfileController extends Controller
 
     public function uploadProfilePicture(Request $request)
     {
-        // Step 1: Validate the request to ensure a valid image is uploaded.
         $request->validate([
             'profile_picture' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        // Step 2: Retrieve the authenticated user.
-        $user = $request->user(); // Assuming user authentication is in place.
+        $user = $request->user();
 
-        // Step 3: Check if the user already has a profile picture and delete it.
         if ($user->profile_picture && Storage::disk('public')->exists($user->profile_picture)) {
             Storage::disk('public')->delete($user->profile_picture);
         }
 
-        // Step 4: Retrieve the uploaded file.
         $imageFile = $request->file('profile_picture');
 
-        // Step 5: Generate a unique name for the image to avoid conflicts.
         $fileName = uniqid() . '_' . time() . '.' . $imageFile->getClientOriginalExtension();
 
-        // Step 6: Store the image in the 'public/profile_pictures' directory.
         $filePath = $imageFile->storeAs('profile_pictures', $fileName, 'public');
 
-        // Step 7: Save the new file path in the database for the authenticated user.
         $user->update(['profile_picture' => $filePath]);
 
-        // Step 8: Return a success response with the file URL.
         return response()->json([
             'message' => 'Profile picture uploaded successfully.',
             'file_url' => asset('storage/' . $filePath), // Generate public URL
