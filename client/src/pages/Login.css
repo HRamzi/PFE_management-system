@@ -1,138 +1,85 @@
-/* Reset basic styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
-  }
-  
-  .login-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    gap: 2rem;
-    padding: 2rem;
-    background-color: #f0f0f0;
-  }
-  
-  .login-illustration img {
-    max-width: 100%;
-    height: auto;
-  }
-  
-  .login-form-container {
-    background: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 100%;
-  }
-  
-  .login-form-container h1 {
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .login-form-container p {
-    margin-bottom: 1.5rem;
-    color: #666;
-  }
-  
-  .form-group {
-    margin-bottom: 1rem;
-    position: relative;
-  }
-  
-  input {
-    width: 100%;
-    padding: 0.8rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-  }
-  
-  input:focus {
-    border-color: #333;
-    outline: none;
-  }
-  
-  .show-password {
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-    cursor: pointer;
-    font-size: 1rem;
-    color: #aaa;
-  }
-  
-  .remember-forgot {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-    font-size: 0.9rem;
-  }
-  
-  .remember-forgot .forgot-password {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .remember-forgot .forgot-password:hover {
-    text-decoration: underline;
-  }
-  
-  .login-button {
-    width: 100%;
-    padding: 0.8rem;
-    background-color: #333;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-  
-  .login-button:hover {
-    background-color: #555;
-  }
-  
-  .login-google {
-    width: 100%;
-    padding: 0.8rem;
-    background-color: white;
-    color: #555;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    margin-top: 0.5rem;
-  }
-  
-  .login-google:hover {
-    background-color: #f7f7f7;
-  }
-  
-  .signup-link {
-    text-align: center;
-    margin-top: 1rem;
-    font-size: 0.9rem;
-  }
-  
-  .signup-link a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .signup-link a:hover {
-    text-decoration: underline;
-  }
-  
+/* Events.css */
+
+/* Container for the events */
+.events-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f6f8;
+}
+
+/* Card container for the calendar */
+.calendar-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+}
+
+/* Title of the calendar */
+.calendar-title {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #4e73df;
+  font-weight: bold;
+}
+
+/* Event buttons */
+.event-buttons {
+  margin-top: 30px;
+}
+
+.event-button {
+  background-color: #4e73df;
+  color: white;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.event-button:hover {
+  background-color: #2e59d9;
+}
+
+/* Event details section */
+.event-details {
+  margin-top: 30px;
+}
+
+.event-details ul {
+  list-style: none;
+  padding: 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+.event-details li {
+  margin-bottom: 10px;
+}
+
+.event-details strong {
+  color: #333;
+}
+
+/* Custom tile styling for event dates */
+.react-calendar .event-day {
+  background-color: #4e73df;
+  color: white !important;
+  border-radius: 50%;
+}
+
+.react-calendar__tile {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.react-calendar__tile:hover {
+  background-color: #2e59d9;
+  color: white;
+}
