@@ -11,15 +11,7 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-
-   use HasFactory, Notifiable, HasApiTokens;
-    /**
-     * The primary key associated with the table.
-     *
-     * @var string
-     */
-
-
+    use HasFactory, Notifiable, HasApiTokens;
 
     /**
      * The attributes that are mass assignable.
@@ -27,11 +19,9 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'name',
         'email',
-        'phone_number',
         'password',
-        'user_role',
-        'profile_picture',
     ];
 
     /**

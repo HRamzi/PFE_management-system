@@ -1,0 +1,138 @@
+/* Reset basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  .login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: #f0f0f0;
+  }
+  
+  .login-illustration img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .login-form-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  .login-form-container h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .login-form-container p {
+    margin-bottom: 1.5rem;
+    color: #666;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+    position: relative;
+  }
+  
+  input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  input:focus {
+    border-color: #333;
+    outline: none;
+  }
+  
+  .show-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 1rem;
+    color: #aaa;
+  }
+  
+  .remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .remember-forgot .forgot-password {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .remember-forgot .forgot-password:hover {
+    text-decoration: underline;
+  }
+  
+  .login-button {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .login-button:hover {
+    background-color: #555;
+  }
+  
+  .login-google {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: white;
+    color: #555;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+  
+  .login-google:hover {
+    background-color: #f7f7f7;
+  }
+  
+  .signup-link {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .signup-link a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .signup-link a:hover {
+    text-decoration: underline;
+  }
+  

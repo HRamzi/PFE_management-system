@@ -4,15 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "content-hash": "884429db2110f056bf6fd33c3f3d6f0e",
-=======
-    "content-hash": "f72e284aec6964ba6a65b4571522b0b7",
->>>>>>> bdf02208b70e11bbd5ff6d2204884f8893baca0f
-=======
     "content-hash": "45f08affa4dfa33c8ae3ad50d98ce1e9",
->>>>>>> d217f8b8ebbc955844614b7d07ce875ddc6aaee6
     "packages": [
         {
             "name": "brick/math",
@@ -1332,18 +1324,6 @@
         },
         {
             "name": "laravel/sanctum",
-<<<<<<< HEAD
-            "version": "v4.0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/laravel/sanctum.git",
-                "reference": "819782c75aaf2b08da1765503893bd2b8023d3b3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/laravel/sanctum/zipball/819782c75aaf2b08da1765503893bd2b8023d3b3",
-                "reference": "819782c75aaf2b08da1765503893bd2b8023d3b3",
-=======
             "version": "v4.0.3",
             "source": {
                 "type": "git",
@@ -1354,7 +1334,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/sanctum/zipball/54aea9d13743ae8a6cdd3c28dbef128a17adecab",
                 "reference": "54aea9d13743ae8a6cdd3c28dbef128a17adecab",
->>>>>>> bdf02208b70e11bbd5ff6d2204884f8893baca0f
                 "shasum": ""
             },
             "require": {
@@ -1405,11 +1384,7 @@
                 "issues": "https://github.com/laravel/sanctum/issues",
                 "source": "https://github.com/laravel/sanctum"
             },
-<<<<<<< HEAD
-            "time": "2024-11-15T14:47:23+00:00"
-=======
             "time": "2024-09-27T14:55:41+00:00"
->>>>>>> bdf02208b70e11bbd5ff6d2204884f8893baca0f
         },
         {
             "name": "laravel/serializable-closure",

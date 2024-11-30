@@ -8,15 +8,6 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
-// Route::get('/user', function (Request $request) {
-//     return $request->user();
-// })->middleware('auth:sanctum');
-Route::get('/profile/{id}',[ProfileController::class,'showProfileInformation']);
-Route::put('/profile/phone/{id}',[ProfileController::class,'updatePhoneNumber']);
-Route::post('/profile/picture',[ProfileController::class,'uploadProfilePicture']);
-
-
-
 
 Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
