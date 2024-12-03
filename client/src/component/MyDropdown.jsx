@@ -8,7 +8,7 @@ function MyDropdown(){
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Edit Profile</Dropdown.Item>
+                <Dropdown.Item href="/profile">Edit Profile</Dropdown.Item>
                 <Dropdown.Item href="#/action-3">Log Out</Dropdown.Item>
             </Dropdown.Menu>
     </Dropdown>

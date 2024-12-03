@@ -1,17 +1,24 @@
-
-import Card from "../Component/Card";
-import NavbarContent from "../Component/NavbarContent";
-import './TeacherDashboard.css'
-import React from 'react';
-import Calendar from "../Component/Calendar";
-import MyTable from "../Component/Table";
+import './Dashboard.css'
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import MyProgressBar from "../Component/MyProgressBar";
 import MyDropdown from "../Component/MyDropdown";
+import DashboardScreen from "../Component/Teacher/DashboardScreen";
+import ClassesScreen from "../Component/Teacher/ClassesScreen";
+import Dashboard from "../Component/Dashboard";
+import Propositions from "../Component/Propositions";
+import Settings from "../Component/Settings";
+import AddProject from "../Component/AddProject";
+import Notifications from "../Component/Notifications";
+import AddingProjectScreen from '../Component/Teacher/AddingProjectScreen';
+import PropositionsScreen from '../Component/Teacher/PropositionsScreen';
+import NotificationScreen from '../Component/Teacher/NotificationScreen';
+import Profile from '../Component/Profile';
+import ProfileScreen from '../Component/Teacher/ProfileScreen';
 
 
 
 function TeacherDashboard(){
+    const [currentPage , setCurrentPage] = useState('dashboard');
     const headerStyle = {
         display: 'flex',
         justifyContent: 'space-between',
@@ -40,13 +47,16 @@ function TeacherDashboard(){
         fontWeight: 'bold',
         color: '#333'
     }
+    const handleClick = (page) => {
+        setCurrentPage(page); // Update the currentPage state #f8f9fa
+    };
 
     return (
         <React.Fragment>
         <header style={headerStyle}>
         <div style={profileContainer}>
         <img
-          src="https://static.vecteezy.com/system/resources/previews/001/840/612/non_2x/picture-profile-icon-male-icon-human-or-people-sign-and-symbol-free-vector.jpg" // Replace this with your profile picture URL
+          src="https://i.postimg.cc/D0bffYbP/IMG-1246-900x675.jpg" 
           alt="Profile"
           style={profilePic}
         />
@@ -57,36 +67,18 @@ function TeacherDashboard(){
         <body className="bodyy">
         <div className='Main-div'>
             <div className="Navbar">
-                <NavbarContent name='teacher' current='dashboard'/>
+                <Dashboard isSelected={currentPage === 'dashboard' ? 'true' : ''} onClick={() => handleClick('dashboard')}/>
+                <AddProject isSelected={currentPage === 'add projects' ? 'true' : ''} onClick={() => handleClick('add projects')}/>
+                <Notifications isSelected={currentPage === 'notifications' ? 'true' : ''} onClick={() => handleClick('notifications')}/>
+                <Propositions isSelected={currentPage === 'propositions' ? 'true' : ''} onClick={() => handleClick('propositions')}/>
+                <Profile isSelected={currentPage === 'profile' ? 'true' : ''} onClick={() => handleClick('profile')}/>
             </div>
-            <div style={{display : 'flex', flexDirection : 'column'}}>
-            <div className="Cards-div">
-                <Card name="Total Student" value="255, 224, 178" opacity={0.7}/>
-                <Card name="Total Projects" value="224, 247, 250" opacity={0.7}/>
-                <Card name="Supervised Projects" value="248, 187, 208" opacity={0.7}/>
-                <Card name="Proposed Projects" value="290, 150, 108" opacity={0.7}/>
-            </div>
-
+            {currentPage === 'dashboard' && <DashboardScreen />}
+            {currentPage === 'add projects' && <AddingProjectScreen/>}
+            {currentPage === 'propositions' && <PropositionsScreen/>}
+            {currentPage === 'notifications' && <NotificationScreen/>}
+            {currentPage === 'profile' && <ProfileScreen/>}
             
-            <div style={{display : 'flex' }}>
-                <div style={{borderRadius: '10px', marginLeft : '25px' ,width : '450px' , height : '350px' , backgroundColor : 'white',}}>
-                    <h1 style={{fontSize:'25px' , margin : '5px'}}>Projects : </h1>
-                    <MyTable name='teacher'/>
-                </div>
-                <div style={{ borderRadius : '10px',padding: '20px', width: '480px', backgroundColor : 'White' , marginLeft : '15px' }}>
-                    <h3 style={{fontSize : '28px'}}>statistical</h3>
-                    <MyProgressBar name = "Approved Projects" value="70"/>
-                    <MyProgressBar name = "In progress Projects" value="50"/>
-                    <MyProgressBar name = "Validated Projects" value="30"/>
-                    <MyProgressBar name = "Supervised Students" value="40"/>
-                    
-
-                </div>
-            </div>
-            <div style={{width : '65%'}}>
-            <Calendar/>
-            </div>
-        </div>
         </div>
         </body>
         </React.Fragment>

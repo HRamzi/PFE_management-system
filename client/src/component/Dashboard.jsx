@@ -11,6 +11,7 @@ function Dashboard(props){
         alignItems: 'center', 
         gap: '8px',
         marginBottom : '12px',
+        marginTop : '10px',
         cursor : 'pointer',
         backgroundColor : props.isSelected ? 'rgba(5, 117, 230, 1)' : 'white',
         color : props.isSelected ? 'white' : 'black',
@@ -21,9 +22,11 @@ function Dashboard(props){
         borderRadius : '15px'
     }
 
-    const handleClick = () =>{
-        navigate('/teacher-dashboard');
-    }
+    const handleClick = () => {
+        if (props.onClick) {
+            props.onClick();  // Trigger the onClick function passed as a prop
+        }
+    };
 
      return(
         <div style={stylee} onClick={handleClick}>

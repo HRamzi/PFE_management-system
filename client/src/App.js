@@ -5,6 +5,7 @@ import StudentDashboard from './Pages/StudentDashboard';
 import TeacherDashboard from './Pages/TeacherDashboard';
 import ClassManagment from './Pages/ClassManagment';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Login from './Pages/login';
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path='/teacher-dashboard' element={<TeacherDashboard/>}/>
         <Route path='/admin-dashboard' element={<AdminDashboard/>}/>
         <Route path='/classes-page' element={<ClassManagment/>}/>
+        <Route path='/login' element={<Login/>}/>
       </Routes>
       </BrowserRouter>
   );

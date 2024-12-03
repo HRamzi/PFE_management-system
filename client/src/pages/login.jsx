@@ -1,15 +1,18 @@
 import React, { useState } from "react";
-import axios from "../axios";
+import axios from "axios";
 import { Navigate } from "react-router-dom";
-import "./Login.css"; // Update your CSS file for styling
+import "./Login.css"; // Ensure your styles are applied
 
-const Login = () => {
+function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [remember, setRemember] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [redirect, setRedirect] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [testEmail , setTestEmail] = useState(false);
+  const [testPassword , setTestPassword] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,32 +20,66 @@ const Login = () => {
     setError("");
 
     try {
-      await axios.get("sanctum/csrf-cookie");
-      const response = await axios.post("login", {
-        email,
-        password,
-        remember,
-      });
+      // Step 1: Request CSRF token from the server
+      axios.get('http://127.0.0.1:8000/api/users', {
+        withCredentials: true,
+    }).then(response => {
+        if(response.data.length > 0){
+          if(response.data.some(user => user.email === email)){
+            setTestEmail(true);
+            console.log("pass",response.data[1]['password']);
+          }
+          if(response.data.some(user => user.password === password)){
+            setTestPassword(true);
+          }
+          if(testEmail && testPassword){
+            setRedirect(true);
+          }
+          else{
+            console.log('erroooorrr');
+            testEmail === false ? setError("Email not match ")
+                                : testPassword === false ? setError("Password not match")
+                                : setError("Unexpected error");
+          }
+        }
+    }).catch(error => {
+        console.error(error);
+    });
+
+      
+      /*const response = await axios.post(
+        "http://127.0.0.1:8000/api/login",
+        {
+          email: email,
+          password: password,
+        },
+        { withCredentials: true } // Ensure credentials (cookies) are included
+      );
 
       const { user, role } = response.data;
 
       localStorage.setItem("user", JSON.stringify(user));
-      localStorage.setItem("role", role);
+      localStorage.setItem("role", role);*/
 
-      setRedirect(true);
+      
     } catch (error) {
-      if (error.response && error.response.status === 401) {
-        setError("Invalid email or password");
+      if (error.response) {
+        if (error.response.status === 401) {
+          setError("Invalid email or password");
+        } else {
+          setError("An unexpected error occurred. Please try again later.");
+        }
       } else {
-        setError("An unexpected error occurred. Please try again later.");
+        setError("Network error. Please check your connection.");
       }
+      console.log(error);
     } finally {
       setLoading(false);
     }
   };
 
   if (redirect) {
-    return <Navigate to="/dashboard" />;
+    return <Navigate to="/teacher-dashboard" />;
   }
 
   return (
@@ -72,7 +109,12 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-            <span className="show-password">👁</span>
+            <span
+              className="show-password"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? "🙈" : "👁"}
+            </span>
           </div>
           <div className="remember-forgot">
             <label>
