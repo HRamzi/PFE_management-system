@@ -15,20 +15,13 @@ return [
     |
     */
 
-    'paths' => ['*'],
-
+    'paths' => ['api/*', 'sanctum/csrf-cookie'],
     'allowed_methods' => ['*'],
-
-    'allowed_origins' => [env('FRONTEND_URL', 'http://localhost:3000')],
-
+    'allowed_origins' => ['http://localhost:3000'],  // Your frontend domain
     'allowed_origins_patterns' => [],
-
-    'allowed_headers' => ['*'],
-
+    'allowed_headers' => ['Content-Type', 'X-XSRF-TOKEN', 'Authorization'],
     'exposed_headers' => [],
-
     'max_age' => 0,
-
     'supports_credentials' => true,
 
 ];
