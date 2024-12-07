@@ -1,17 +1,14 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useNavigate } from 'react-router-dom';
 
 
 
 function Dashboard(props){
-    const navigate = useNavigate();
 
     const stylee = {
         display: 'flex',
         alignItems: 'center', 
         gap: '8px',
         marginBottom : '12px',
-        marginTop : '10px',
         cursor : 'pointer',
         backgroundColor : props.isSelected ? 'rgba(5, 117, 230, 1)' : 'white',
         color : props.isSelected ? 'white' : 'black',

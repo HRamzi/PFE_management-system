@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Navigate } from "react-router-dom";
-import "./Login.css"; // Ensure your styles are applied
+import "./Login.css";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -27,10 +27,12 @@ function Login() {
         if(response.data.length > 0){
           if(response.data.some(user => user.email === email)){
             setTestEmail(true);
-            console.log("pass",response.data[1]['password']);
+            console.log("pass",response.data[1]['email']);
           }
           if(response.data.some(user => user.password === password)){
             setTestPassword(true);
+            
+            console.log("pass",response.data[1]['email']);
           }
           if(testEmail && testPassword){
             setRedirect(true);
