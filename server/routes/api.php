@@ -8,12 +8,9 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
-<<<<<<< HEAD
 use App\Http\Controllers\UserController;
 use Laravel\Sanctum\Http\Controllers\CsrfCookieController;
-=======
 use App\Http\Controllers\Auth\ProfileController;
->>>>>>> 8f5d8f54813418fefb4751d807f4d2697a4175be
 
 // Fetch all users
 Route::get('/users', [UserController::class, 'index']);
@@ -23,17 +20,12 @@ Route::middleware('web')->group(function () {
     Route::get('/sanctum/csrf-cookie', [CsrfCookieController::class, 'csrf']);
 });
 
+// Profile Routes
+Route::get('/admin-dashboard/profile/{id}', [ProfileController::class, 'showProfileInformation']);
+Route::put('/profile/phone/{id}', [ProfileController::class, 'updatePhoneNumber']);
+Route::post('/profile/picture', [ProfileController::class, 'uploadProfilePicture']);
 
-
-Route::get('/admin-dashboard/profile/{id}',[ProfileController::class,'showProfileInformation']);
-Route::put('/profile/phone/{id}',[ProfileController::class,'updatePhoneNumber']);
-Route::post('/profile/picture',[ProfileController::class,'uploadProfilePicture']);
-
-
-
-
-
-
+// Public Routes
 Route::post('/register', [RegisteredUserController::class, 'store'])
     ->middleware('guest') // This is for users who are not authenticated
     ->name('register');
@@ -49,7 +41,7 @@ Route::post('/reset-password', [NewPasswordController::class, 'store'])
     ->middleware('guest') // This is for users who are not authenticated
     ->name('password.store');
 
-Route::get('/verify-email/{id}/{hash}', VerifyEmailController::class)
+Route::get('/verify-email/{id}/{hash}', [VerifyEmailController::class, 'verify'])
     ->middleware(['auth', 'signed', 'throttle:6,1']) // Email verification route with throttle and signed URL
     ->name('verification.verify');
 
